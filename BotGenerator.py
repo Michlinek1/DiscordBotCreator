@@ -1,4 +1,6 @@
 from tkinter import *
+import subprocess
+import sys
 
 
 
@@ -31,12 +33,24 @@ def Generate():
         e.delete(0, END)
         e.insert(0, "You're api contains too much or not enought letters!")
     for i in api.split():
-        if i.startswith('O'): #Checks if api starts with O, otherwize prints the error
+        if i.startswith('O'): #Checks if api starts with O, otherwise prints the error
             pass
         else:
             e.delete(0, END)
             e.insert(0, "Your api doesn't start with 'o'. Please try again!")
+    spacje = sum(n.isspace() for n in e.get()) #Checks the amount of spaces
+    if spacje > 0:
+        e.delete(0, END)
+        e.insert(0, "Your api can't have any spaces!")
+    
 
+
+    Bot = open("Bot.py","w")
+
+    with open("Bot.py", "r+") as Bot:
+        Bot.readlines("Will be done in the future")
+
+    subprocess.run([sys.executable, "Bot.py"])
 
 
 
@@ -47,5 +61,7 @@ def Generate():
 
 GenerateButton = Button(root, text = "Generate!", command = Generate).pack()
 ClearButton = Button(root, text = "Clear", command=Clear).pack()
+
+
 
 mainloop()
