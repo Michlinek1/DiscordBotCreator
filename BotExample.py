@@ -8,4 +8,4 @@ client = commands.Bot(command_prefix='-')
 async def on_ready(): 
  	 print('Bot starts working!') 
 #You can delete that (It won't break your bot). It shows if bot is active or not 
-client.run('OTQ3OTEwODgzNjA1MDk0NDcx.Yh0IzQ.SewigbrYEPWR091ZHjxcGbu8hOY')
+client.run() #Your api goes here!
